@@ -1,0 +1,87 @@
+
+{
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+
+  "modules-left": [
+    "custom/window_list",
+    "workspaces"
+  ],
+
+  "modules-center": [
+    "custom/active_window"
+  ],
+
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock",
+    "custom/nix-updates",
+    "tray"
+  ],
+
+  "custom/window_list": {
+    "exec": "~/.config/waybar/scripts/window_list.sh",
+    "interval": 2,
+    "format": "{}",
+    "tooltip": false
+  },
+
+  "custom/active_window": {
+    "exec": "~/.config/waybar/scripts/active_window.sh",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
+
+  "custom/nix-updates": {
+    "exec": "~/.config/waybar/scripts/nix-updates.sh",
+    "interval": 3600,
+    "format": " {}",
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%H:%M %d-%m-%Y}",
+    "tooltip-format": "{:%A, %d %B %Y}",
+    "interval": 1
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "pulseaudio": {
+    "scroll-step": 5
+  },
+
+  "backlight": {
+    "format": "{percent}%",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": " {ifname}",
+    "format-disconnected": "",
+    "tooltip": true
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  },
+
+  "workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  }
+}
+
+
